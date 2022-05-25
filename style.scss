@@ -1,0 +1,272 @@
+:root {
+    --color-bg: #101211;
+    --color-main: #20201E;
+    --color-main-light: #3f3f3f;
+    --color-main-dark: #1f1f1f;
+    --color-text: #f1f1f1;
+    --color-text-secondary: #8a8a8a;
+    --color-card: #1E1E1C;
+}
+
+* {
+    color: var(--color-text);
+    box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-main-light);
+    border-radius: 1000px;
+}
+
+
+
+html {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-main);
+    color: var(--color-text);
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: var(--color-main);
+        background-color: var(--color-bg);
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+
+        .navbar {
+            height: 60px !important;
+            width: 100%;
+            background-color: var(--color-main);
+            color: var(--color-text);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 15px;
+            z-index: 999;
+
+
+            .nav-left {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+                text-align: left;
+                width: 100%;
+                height: 100%;
+
+                .nav-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: var(--color-text);
+                }
+
+                .nav-back{
+                    cursor: pointer;
+                    margin-right: 15px;
+                }
+            }
+
+            .nav-right {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex-direction: row;
+                width: 100%;
+                height: 100%;
+
+                .nav-item {
+                    height: 32px;
+                    width: 32px;
+                    margin-left: 15px;
+                    font-size: 1.5rem;
+                    // font-weight: bold;
+                    color: var(--color-text);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+                    padding: 20px;
+                    border-radius: 50%;
+
+                    // &:hover{
+                    //     background-color: var(--color-main-light);
+                    // }
+
+                    &:active {
+                        background-color: var(--color-main);
+                    }
+
+                    &#nav-settings {
+                        transform: rotate(0deg);
+
+                        &:active {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        .container {
+            width: 100vw;
+            height: 100%;
+            max-height: 100%;
+            padding: 0 15px;
+            padding-right: 5px;
+            display: flex;
+
+            .body {
+                overflow-y: auto;
+                display: none;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                box-sizing: border-box;
+                max-height: 100%;
+                position: relative;
+                margin-right: 5px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                max-height: 90%;
+                width: 100%;
+                
+                transition: all 0.5s ease-in-out;
+                transform: translateX(-50%);
+                opacity: 0;
+                pointer-events: none;
+                
+
+                &[data-active="true"] {
+                    display: flex;
+                    opacity: 1;
+                    transform: translateX(0%);
+                    pointer-events: all;
+                }
+
+                &#main {
+                    
+                    .loading {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--color-bg);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 2;
+
+                        .loading-icon {
+                            animation: spin 1s linear infinite;
+                            font-size: 2rem;
+                            padding: 15px;
+
+                            @keyframes spin {
+                                from {
+                                    transform: rotate(0deg);
+                                }
+
+                                to {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                        }
+
+                    }
+
+                    .item {
+                        max-height: auto;
+                        width: 100%;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        flex-direction: row;
+                        margin-bottom: 15px;
+                        background-color: var(--color-card);
+                        padding: 15px;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        position: relative;
+                        // margin-right: 5px;
+                        cursor: pointer;
+
+                        .item-img {
+                            height: 100px;
+                            min-width: 100px;
+                            max-width: 100px;
+                            background-color: #3f3f3f;
+                            background-size: cover;
+                            background-position: center;
+                            margin-right: 15px;
+                        }
+
+                        .item-content {
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;
+                            flex-direction: column;
+
+                            .item-title {
+                                font-size: 1.5rem;
+                                font-weight: bold;
+                                color: var(--color-text);
+
+                                #time {
+                                    font-size: 0.75rem;
+                                    font-weight: 500;
+                                    color: var(--color-text-secondary);
+                                }
+                            }
+
+                            .item-data,
+                            .item-data #author,
+                            .item-data #date {
+                                font-size: 0.75rem;
+                                font-weight: 500;
+                                color: var(--color-text-secondary);
+                                margin-top: 15px;
+
+                                #author img {
+                                    height: 0.75rem;
+                                    width: 0.75rem;
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+select{
+    color: #1f1f1f;
+    background-color: #fff;
+
+    option {
+        color: #1f1f1f;
+        background-color: #fff;
+    }
+}

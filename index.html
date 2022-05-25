@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1.0">
+    <title>News</title>
+
+    <link rel="stylesheet" href="style.scss">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <!-- <div class="nav-back material-symbols-outlined" onclick="goBack()">arrow_back</div> -->
+            <div class="nav-title">
+                BoopNews
+            </div>
+        </div>
+        <div class="nav-right">
+            <!-- <div class="nav-item material-symbols-outlined" id="nav-add" onclick="">add</div> -->
+            <div class="nav-item material-symbols-outlined" id="nav-settings" onclick="switchPage('settings')">settings</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="body" id="main" data-active="true">
+            <div class="loading">
+                <div class="material-symbols-outlined loading-icon">refresh</div>
+                <div class="loading-text">One sec...</div>
+            </div>
+            <div class="item">
+                Welcome to BoopNews
+            </div>
+        </div>
+        <div class="body" id="settings">
+            <div class="settings-item-title">Topic</div>
+            <select name="topic" id="topic-select">
+                <option value="news">News</option>
+                <option value="sport">Sport</option>
+                <option value="tech">Tech</option>
+                <option value="world">World</option>
+                <option value="finance">Finance</option>
+                <option value="politics">Politics</option>
+                <option value="business">Business</option>
+                <option value="economics">Economics</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="beauty">Beauty</option>
+                <option value="travel">Travel</option>
+                <option value="music">Music</option>
+                <option value="food">Food</option>
+                <option value="science">Science</option>
+                <option value="gaming">Gaming</option>
+                <option value="energy">Energy</option>
+            </select>
+        </div>
+        <!-- article viewer -->
+        <div class="body" id="viewer">
+
+        </div>
+    </div>
+</body>
+
+</html>
