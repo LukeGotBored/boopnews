@@ -102,7 +102,7 @@ window.fetchNews = async function(){
     await fetch(`https://api.newscatcherapi.com/v2/latest_headlines?countries=US&lang=en&topic=${encodeURIComponent(localStorage.getItem("topic").toLocaleLowerCase())}&page_size=10&page=${page}`, {
         method: "GET",
         headers: {
-            'x-api-key': 'rKHk3vIV2Q8JyRKA373DdbpLJ5RlnQRxBND6cQxqKV8'
+            'x-api-key': 'YOUR-API-KEY-HERE'
         }
     }).then(function(response) {
         return response.json();
